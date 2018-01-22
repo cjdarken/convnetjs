@@ -1,5 +1,9 @@
 (function(global) {
   "use strict";
+  
+  function setRandomNumberGenerator( rng ) {
+    global.RNG = rng;
+  }
 
   // Random number utilities
   var return_v = false;
@@ -9,8 +13,8 @@
       return_v = false;
       return v_val; 
     }
-    var u = 2*Math.random()-1;
-    var v = 2*Math.random()-1;
+    var u = 2*global.RNG.random()-1;
+    var v = 2*global.RNG.random()-1;
     var r = u*u + v*v;
     if(r == 0 || r > 1) return gaussRandom();
     var c = Math.sqrt(-2*Math.log(r)/r);
@@ -18,8 +22,8 @@
     return_v = true;
     return u*c;
   }
-  var randf = function(a, b) { return Math.random()*(b-a)+a; }
-  var randi = function(a, b) { return Math.floor(Math.random()*(b-a)+a); }
+  var randf = function(a, b) { return global.RNG.random()*(b-a)+a; }
+  var randi = function(a, b) { return Math.floor(global.RNG.random()*(b-a)+a); }
   var randn = function(mu, std){ return mu+gaussRandom()*std; }
 
   // Array utilities
@@ -75,7 +79,7 @@
     var array = [];
     for(var q=0;q<n;q++)array[q]=q;
     while (i--) {
-        j = Math.floor(Math.random() * (i+1));
+        j = Math.floor(global.RNG.random() * (i+1));
         temp = array[i];
         array[i] = array[j];
         array[j] = temp;
@@ -122,6 +126,7 @@
     }
   }
 
+  global.rng = Math;
   global.randf = randf;
   global.randi = randi;
   global.randn = randn;

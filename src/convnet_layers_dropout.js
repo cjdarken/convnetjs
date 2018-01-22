@@ -28,7 +28,7 @@
       if(is_training) {
         // do dropout
         for(var i=0;i<N;i++) {
-          if(Math.random()<this.drop_prob) { V2.w[i]=0; this.dropped[i] = true; } // drop!
+          if(global.RNG.random()<this.drop_prob) { V2.w[i]=0; this.dropped[i] = true; } // drop!
           else {this.dropped[i] = false;}
         }
       } else {

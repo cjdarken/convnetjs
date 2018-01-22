@@ -96,7 +96,7 @@
         var ni = randi(this.neurons_min, this.neurons_max);
         var act = ['tanh','maxout','relu'][randi(0,3)];
         if(randf(0,1)<0.5) {
-          var dp = Math.random();
+          var dp = global.RNG.random();
           layer_defs.push({type:'fc', num_neurons: ni, activation: act, drop_prob: dp});
         } else {
           layer_defs.push({type:'fc', num_neurons: ni, activation: act});
