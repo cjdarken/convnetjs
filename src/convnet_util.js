@@ -127,6 +127,7 @@
   }
 
   global.rng = Math;
+  global.setRandomNumberGenerator = setRandomNumberGenerator;
   global.randf = randf;
   global.randi = randi;
   global.randn = randn;
