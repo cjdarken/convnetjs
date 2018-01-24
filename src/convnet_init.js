@@ -1,1 +1,1 @@
-var convnetjs = convnetjs || { REVISION: 'ALPHA' };
+var convnetjs = convnetjs || { REVISION: 'ALPHA 001' };
